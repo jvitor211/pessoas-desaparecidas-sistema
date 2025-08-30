@@ -1,0 +1,787 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Polícia Civil Design System - Dark Theme */
+:root {
+  --pc-dark-bg: #0f172a;        /* Background escuro principal */
+  --pc-dark-card: #1e293b;      /* Background cards escuros */
+  --pc-dark-secondary: #334155;  /* Elementos secundários */
+  --pc-gold: #fbbf24;           /* Dourado institucional */
+  --pc-gold-dark: #f59e0b;      /* Dourado escuro */
+  --pc-gold-light: #fde047;     /* Dourado claro */
+  --pc-navy: #1e40af;           /* Azul institucional */
+  --pc-text-light: #f8fafc;     /* Texto claro principal */
+  --pc-text-gray: #cbd5e1;      /* Texto secundário */
+  --pc-text-muted: #94a3b8;     /* Texto terciário */
+  --pc-white: #ffffff;          /* Branco puro */
+  --pc-success: #10b981;        /* Verde para localizada */
+  --pc-danger: #ef4444;         /* Vermelho para desaparecida */
+}
+
+/* Global styles and fixes */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, var(--pc-dark-bg) 0%, #1e293b 100%);
+  color: var(--pc-text-light);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* Polícia Civil Dark Color System */
+.min-h-screen { min-height: 100vh; }
+.bg-gray-50 { background-color: var(--pc-dark-bg); }
+.bg-white { background-color: var(--pc-dark-card); }
+.text-gray-900 { color: var(--pc-text-light); }
+.text-gray-800 { color: var(--pc-text-light); }
+.text-gray-600 { color: var(--pc-text-gray); }
+.text-gray-500 { color: var(--pc-text-muted); }
+.text-blue-600 { color: var(--pc-gold); }
+.text-red-600 { color: var(--pc-danger); }
+.text-green-600 { color: var(--pc-success); }
+.bg-red-100 { background-color: rgba(239, 68, 68, 0.1); }
+.bg-green-100 { background-color: rgba(16, 185, 129, 0.1); }
+.bg-blue-600 { background-color: var(--pc-navy); }
+.hover\:bg-blue-700:hover { background-color: var(--pc-gold-dark); }
+
+/* Override de cores padrão do navegador */
+a {
+  color: var(--pc-text-light);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--pc-text-light);
+}
+
+a:hover {
+  color: var(--pc-gold);
+}
+
+a:active {
+  color: var(--pc-gold);
+}
+
+/* Header institucional - Dark Theme */
+.pc-header {
+  background: linear-gradient(135deg, var(--pc-dark-bg) 0%, var(--pc-dark-secondary) 100%);
+  color: var(--pc-text-light);
+  border-bottom: 3px solid var(--pc-gold);
+  box-shadow: 0 4px 6px -1px rgba(251, 191, 36, 0.2);
+}
+
+.pc-logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.025em;
+  color: var(--pc-gold);
+}
+
+.pc-subtitle {
+  color: var(--pc-text-gray);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.max-w-7xl { max-width: 80rem; }
+.max-w-4xl { max-width: 56rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.p-6 { padding: 1.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mt-2 { margin-top: 0.5rem; }
+
+.grid { display: grid; }
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.space-x-4 > * + * { margin-left: 1rem; }
+
+.rounded-lg { border-radius: 0.5rem; }
+.rounded-md { border-radius: 0.375rem; }
+.rounded-full { border-radius: 9999px; }
+.border { border-width: 1px; }
+.border-gray-300 { border-color: #d1d5db; }
+.shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; }
+
+.w-full { width: 100%; }
+.w-24 { width: 6rem; }
+.h-24 { height: 6rem; }
+.object-cover { object-fit: cover; }
+
+.block { display: block; }
+.text-center { text-align: center; }
+
+/* Polícia Civil Card System - Dark Theme */
+.card {
+  background: var(--pc-dark-card);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--pc-dark-secondary);
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--pc-gold) 0%, var(--pc-gold-light) 100%);
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  border-color: var(--pc-gold);
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card:focus {
+  outline: 2px solid var(--pc-gold);
+  outline-offset: 2px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:active {
+  transform: translateY(0);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Garantir cores consistentes nos cards das pessoas */
+.card h3,
+.card p,
+.card span,
+.card div {
+  color: var(--pc-text-light) !important;
+}
+
+.card .status-badge {
+  color: inherit !important;
+}
+
+.card .status-desaparecida {
+  color: #fca5a5 !important;
+}
+
+.card .status-localizada {
+  color: #6ee7b7 !important;
+}
+
+/* Reset de cores padrão de links */
+a.card,
+a.card:link,
+a.card:visited,
+a.card:hover,
+a.card:active {
+  color: var(--pc-text-light);
+  text-decoration: none;
+}
+
+/* Garantir que textos dentro dos cards mantenham as cores corretas */
+a.card *:not(.status-badge):not(.status-desaparecida):not(.status-localizada) {
+  color: var(--pc-text-light) !important;
+}
+
+/* Forçar override completo de qualquer cor azul/roxa do navegador */
+.card, .card * {
+  border-color: var(--pc-dark-secondary) !important;
+}
+
+.card:hover, .card:hover * {
+  border-color: var(--pc-gold) !important;
+}
+
+/* Remover qualquer outline ou focus azul/roxo */
+.card:focus,
+.card:focus-visible {
+  outline: 2px solid var(--pc-gold) !important;
+  outline-offset: 2px !important;
+}
+
+/* Garantir que spans com font-medium mantenham cor correta */
+.card .font-medium {
+  color: var(--pc-text-light) !important;
+}
+
+/* Override específico para elementos com classes do Tailwind */
+.card .text-lg,
+.card .text-sm,
+.card .font-semibold,
+.card .font-bold {
+  color: var(--pc-text-light) !important;
+}
+
+/* Polícia Civil Button System - Dark Theme */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--pc-gold) 0%, var(--pc-gold-dark) 100%);
+  color: var(--pc-dark-bg);
+  border: 2px solid transparent;
+  font-weight: 700;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--pc-gold-light) 0%, var(--pc-gold) 100%);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--pc-text-gray);
+  border: 2px solid var(--pc-dark-secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--pc-dark-secondary);
+  color: var(--pc-text-light);
+  border-color: var(--pc-gold);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--pc-navy) 0%, var(--pc-gold) 100%);
+  color: var(--pc-text-light);
+  font-weight: 700;
+}
+
+.btn-accent:hover {
+  background: linear-gradient(135deg, var(--pc-gold) 0%, var(--pc-navy) 100%);
+  transform: translateY(-1px);
+}
+
+/* Polícia Civil Input System - Dark Theme */
+.form-input {
+  width: 100%;
+  padding: 0.6rem 0.875rem;
+  border: 2px solid var(--pc-dark-secondary);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background: var(--pc-dark-bg);
+  color: var(--pc-text-light);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--pc-gold);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+  background: var(--pc-dark-bg);
+}
+
+.form-input::placeholder {
+  color: var(--pc-text-muted);
+  font-weight: 400;
+}
+
+/* Additional Dark Theme Classes */
+.bg-black { background-color: #000000; }
+.bg-opacity-40 { background-color: rgba(0, 0, 0, 0.4); }
+.backdrop-blur-sm { backdrop-filter: blur(4px); }
+.border-yellow-400 { border-color: var(--pc-gold); }
+.text-yellow-400 { color: var(--pc-gold); }
+.text-yellow-300 { color: var(--pc-gold-light); }
+
+/* Minimal Filter System */
+.filter-card {
+  background: var(--pc-dark-card);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--pc-dark-secondary);
+  padding: 0.875rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--pc-gold) 0%, var(--pc-gold-light) 100%);
+}
+
+.filter-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--pc-gold);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.filter-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--pc-dark-secondary);
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  background: var(--pc-dark-bg);
+  color: var(--pc-text-light);
+  height: 2.5rem;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: var(--pc-gold);
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.15);
+  background: var(--pc-dark-bg);
+}
+
+.filter-input::placeholder {
+  color: var(--pc-text-muted);
+  font-weight: 400;
+  font-size: 0.8rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.025em;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  height: 2.5rem;
+  min-width: 5rem;
+}
+
+.filter-btn-primary {
+  background: linear-gradient(135deg, var(--pc-gold) 0%, var(--pc-gold-dark) 100%);
+  color: var(--pc-dark-bg);
+  font-weight: 700;
+}
+
+.filter-btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--pc-gold-light) 0%, var(--pc-gold) 100%);
+  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.3);
+  transform: translateY(-1px);
+}
+
+.filter-btn-secondary {
+  background: transparent;
+  color: var(--pc-text-gray);
+  border: 1px solid var(--pc-dark-secondary);
+}
+
+.filter-btn-secondary:hover {
+  background: var(--pc-dark-secondary);
+  color: var(--pc-text-light);
+  border-color: var(--pc-gold);
+  transform: translateY(-1px);
+}
+
+.filter-btn i {
+  font-size: 0.75rem;
+  margin-right: 0.25rem !important;
+}
+
+/* Detail item styling - Dark Theme */
+.detail-item {
+  padding: 0.75rem;
+  background: var(--pc-dark-secondary);
+  border-left: 4px solid var(--pc-gold);
+  border-radius: 0 0.5rem 0.5rem 0;
+  margin-bottom: 0.75rem;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--pc-gold);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.detail-value {
+  color: var(--pc-text-light);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* Mobile responsive */
+@media (min-width: 640px) {
+  .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .md\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .md\:flex-row { flex-direction: row; }
+  .md\:items-center { align-items: center; }
+  .md\:justify-between { justify-content: space-between; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .lg\:px-8 { padding-left: 2rem; padding-right: 2rem; }
+}
+
+@media (min-width: 1280px) {
+  .xl\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .xl\:grid-cols-6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+/* Additional utility classes */
+.flex-wrap { flex-wrap: wrap; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+
+/* Counter Badge - Header */
+.counter-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
+  border: 1px solid var(--pc-gold);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: var(--pc-gold);
+}
+
+.counter-badge i {
+  color: var(--pc-gold);
+}
+
+.counter-badge span {
+  color: var(--pc-gold);
+}
+
+/* Logo Polícia Civil - Sem Compressão */
+.pc-logo-img {
+  height: 3rem; /* 48px */
+  width: auto;
+  object-fit: contain;
+  margin-right: 0.75rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+}
+
+.pc-logo-img:hover {
+  filter: drop-shadow(0 4px 8px rgba(251, 191, 36, 0.4));
+  transform: scale(1.05);
+}
+
+/* Logo Responsiva */
+@media (max-width: 640px) {
+  .pc-logo-img { 
+    height: 2.5rem; /* 40px */
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pc-logo-img { 
+    height: 2rem; /* 32px */
+    margin-right: 0.375rem;
+  }
+}
+
+/* Polícia Civil Status System - Dark Theme */
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 2px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.status-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.status-desaparecida {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.25) 100%);
+  color: #fca5a5;
+  border-color: var(--pc-danger);
+}
+
+.status-desaparecida::before {
+  background-color: var(--pc-danger);
+}
+
+.status-localizada {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.25) 100%);
+  color: #6ee7b7;
+  border-color: var(--pc-success);
+}
+
+.status-localizada::before {
+  background-color: var(--pc-success);
+}
+
+/* Foto styling profissional */
+.person-photo {
+  border: 3px solid var(--pc-white);
+  box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.1);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  /* Garantir dimensões fixas */
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+.person-photo:hover {
+  box-shadow: 0 8px 12px -2px rgba(30, 58, 138, 0.2);
+  transform: scale(1.02);
+}
+
+/* Container da foto - garante dimensões */
+.photo-container {
+  width: 192px !important;  /* w-48 */
+  height: 192px !important; /* h-48 */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--pc-white);
+  box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.1);
+  border-radius: 0.75rem;
+  background-color: #f3f4f6;
+}
+
+.photo-container:hover {
+  box-shadow: 0 8px 12px -2px rgba(30, 58, 138, 0.2);
+  transform: scale(1.02);
+}
+
+.photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border: none;
+  box-shadow: none;
+  border-radius: 0.5rem;
+}
+
+/* Removed old detail styling - now using dark theme version above */
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Font Awesome Icons - Espaçamento correto */
+.fas, .far, .fab {
+  margin-right: 0.5rem !important;
+}
+
+/* Ajustes específicos para ícones inline */
+i.fas, i.far, i.fab {
+  margin-right: 0.5rem !important;
+  display: inline-block;
+  width: auto;
+  text-align: center;
+}
+
+/* Classes de margem garantidas */
+.mr-1 { margin-right: 0.25rem !important; }
+.mr-2 { margin-right: 0.5rem !important; }
+.mr-3 { margin-right: 0.75rem !important; }
+.mr-4 { margin-right: 1rem !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+.mb-4 { margin-bottom: 1rem !important; }
+.mt-0 { margin-top: 0 !important; }
+.mt-1 { margin-top: 0.25rem !important; }
+
+/* Ícones grandes sem margem direita excessiva */
+.fas.text-4xl, .far.text-4xl, .fab.text-4xl,
+.fas.text-3xl, .far.text-3xl, .fab.text-3xl,
+.fas.text-2xl, .far.text-2xl, .fab.text-2xl {
+  margin-right: 0.75rem !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Ícones em flex containers */
+.flex .fas, .flex .far, .flex .fab {
+  flex-shrink: 0;
+  margin-right: 0.5rem !important;
+}
+
+/* Ajustes para ícones em botões */
+.btn .fas, .btn .far, .btn .fab {
+  margin-right: 0.5rem !important;
+}
+
+/* Ícones pequenos em labels */
+.detail-label .fas, .detail-label .far, .detail-label .fab {
+  margin-right: 0.25rem !important;
+}
+
+/* Ícones no final de linha sem margem direita */
+.fas:last-child, .far:last-child, .fab:last-child {
+  margin-right: 0 !important;
+}
+
+/* Contador de registros - cores garantidas */
+.pc-header .inline-flex {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: var(--pc-gray-800) !important;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.pc-header .inline-flex .fas {
+  color: var(--pc-navy) !important;
+}
+
+.pc-header .inline-flex span {
+  color: var(--pc-gray-800) !important;
+  font-weight: 700 !important;
+}
+
+/* Paginação Profissional - Polícia Civil */
+.pc-pagination-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pc-pagination-btn:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pc-pagination-number {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pc-pagination-number:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pc-pagination-active {
+  background: linear-gradient(135deg, var(--pc-gold), #f59e0b) !important;
+  color: var(--pc-navy) !important;
+  border-color: var(--pc-gold) !important;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.pc-pagination-active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.5);
+}
