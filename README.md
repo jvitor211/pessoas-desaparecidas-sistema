@@ -7,6 +7,7 @@
 **Desenvolvedor:** João Rondon  
 **Email:** jvbarbosa211@gmail.com  
 **Numero:** (65) 992681781 
+
 **Data de Desenvolvimento:** Agosto 2025  
 **Tecnologias:** React + TypeScript + Tailwind CSS + Vite  
 
